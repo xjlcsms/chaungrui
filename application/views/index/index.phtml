@@ -1,0 +1,86 @@
+<?php $this->display("public/header.phtml", array()); ?>
+  <?php $this->display("public/sidebar.phtml"); ?>
+    <?php $this->display("public/nav.phtml"); ?>
+    <style type="text/css">
+      .tile_count .tile_stats_count .tile-num {
+        font-size: 40px
+      }
+      .none {
+        display: none;
+      }
+    </style>
+    <div class="right_col" role="main">
+      <div class="">
+        <div class="row x_title">
+          <div class="col-md-12">
+            <h3>首页</h3>
+          </div>
+        </div>
+         <!-- 首页 start -->
+        <div class="row x_title">
+          <div class="col-md-6">
+            <h3 style="font-size: 18px">账户余额</h3>
+          </div>
+          <div class="col-md-6">
+            <h3 style="font-size: 18px">API接口信息</h3>
+          </div>
+        </div>
+        <div class="row tile_count">
+          <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-comments-o"></i>行业短信</span>
+            <div class="count green"><?php echo $loginUser->getShow_normal_balance();?></span>条</div>
+          </div>
+          <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-comments-o"></i>营销短信</span>
+            <div class="count green"><?php echo $loginUser->getShow_marketing_balance();?></span>条</div>
+          </div>
+          <div class="col-md-offset-2 col-md-4">
+            <p style="font-size: 16px">接口帐号：<span><?php echo $loginUser->getAccess_key();?></span></p>
+            <p style="font-size: 16px;line-height: 16px">接口密码：
+              <span id="noShowPwd" class="">*******</span>
+              <span id="showPwd" class="none"><?php echo $loginUser->getSecret();?></span>
+              <span class="fa-hover" style="padding-left: 30px">
+                <a id="changeShowStatus">
+                  <i class="fa fa-eye-slash"></i>
+                </a>
+              </span>
+            </p>
+          </div>
+        </div>
+        <!-- 任务统计 end -->
+
+        <!-- 今日统计信息 start -->
+        <div class="row x_title">
+          <div class="col-md-6">
+            <h3 style="font-size: 18px">今日统计</h3>
+          </div>
+        </div>
+        <div class="row tile_count">
+          <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-comments-o"></i>行业短信</span>
+            <div class="count green"><span id="generalSend" class="tile-num"></span>条</div>
+            <span class="count_bottom">今日统计</span>
+          </div>
+          <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-comments-o"></i>营销短信</span>
+            <div class="count green"><span id="marketSend" class="tile-num"></span>条</div>
+            <span class="count_bottom">今日统计</span>
+          </div>
+          <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-comments-o"></i>行业短信</span>
+            <div class="count green"><span id="general" class="tile-num"></span>条</div>
+            <span class="count_bottom">今日充值</span>
+          </div>
+          <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-comments-o"></i>营销短信</span>
+            <div class="count green"><span id="market" class="tile-num"></span>条</div>
+            <span class="count_bottom">今日充值</span>
+          </div>
+        </div>
+        <!-- 今日统计信息 end -->
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/script/index/index.js"></script>
+<?php $this->display("public/footer.phtml"); ?>
